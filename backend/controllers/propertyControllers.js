@@ -55,7 +55,7 @@ const updateProperty=async(req,res)=>{
 const deleteProperty=async(req,res)=>{
     const{propertyId}=req.params;
     if(!mongoose.Types.ObjectId.isValid(propertyId)){
-        return res.status(400),json({message:'Invalid property ID'});
+        return res.status(400).json({message:'Invalid property ID'});
     }
     try{
         const deletedProperty=await Property.findOneAndDelete({_id:propertyId});
